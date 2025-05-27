@@ -15,9 +15,6 @@
       "default": "./dist/index.js"
     }
   },
-  "nx": {
-    "name": "design-tokens"
-  },
   "dependencies": {
     "tslib": "^2.3.0"
   }
