@@ -15,7 +15,7 @@
       "default": "./dist/index.js"
     }
   },
-  "dependencies": {
-    "tslib": "^2.3.0"
+  "devDependencies": {
+    "style-dictionary": "^5.0.0"
   }
 }

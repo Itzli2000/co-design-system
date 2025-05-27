@@ -1,0 +1,218 @@
+{
+  "color": {
+    "base": {
+      "light": {
+        "100": {
+          "value": "#f3f9ff",
+          "type": "color"
+        },
+        "200": {
+          "value": "#e5efff",
+          "type": "color"
+        },
+        "300": {
+          "value": "#e1ded3",
+          "type": "color"
+        },
+        "content": {
+          "value": "#151619",
+          "type": "color"
+        }
+      },
+      "dark": {
+        "100": {
+          "value": "#181b22",
+          "type": "color"
+        },
+        "200": {
+          "value": "#303745",
+          "type": "color"
+        },
+        "300": {
+          "value": "#f0ece1",
+          "type": "color"
+        },
+        "content": {
+          "value": "#e1ded3",
+          "type": "color"
+        }
+      }
+    },
+    "primary": {
+      "light": {
+        "default": {
+          "value": "#1baeff",
+          "type": "color"
+        },
+        "content": {
+          "value": "#f7f8fa",
+          "type": "color"
+        }
+      },
+      "dark": {
+        "default": {
+          "value": "#1baeff",
+          "type": "color"
+        },
+        "content": {
+          "value": "#181b22",
+          "type": "color"
+        }
+      }
+    },
+    "secondary": {
+      "light": {
+        "default": {
+          "value": "#64c0ff",
+          "type": "color"
+        },
+        "content": {
+          "value": "#f7f8fa",
+          "type": "color"
+        }
+      },
+      "dark": {
+        "default": {
+          "value": "#64c0ff",
+          "type": "color"
+        },
+        "content": {
+          "value": "#181b22",
+          "type": "color"
+        }
+      }
+    },
+    "accent": {
+      "light": {
+        "default": {
+          "value": "#f27557",
+          "type": "color"
+        },
+        "content": {
+          "value": "#f7f8fa",
+          "type": "color"
+        }
+      },
+      "dark": {
+        "default": {
+          "value": "#f27557",
+          "type": "color"
+        },
+        "content": {
+          "value": "#181b22",
+          "type": "color"
+        }
+      }
+    },
+    "neutral": {
+      "light": {
+        "default": {
+          "value": "#e5efff",
+          "type": "color"
+        },
+        "content": {
+          "value": "#151619",
+          "type": "color"
+        }
+      },
+      "dark": {
+        "default": {
+          "value": "#303745",
+          "type": "color"
+        },
+        "content": {
+          "value": "#e1ded3",
+          "type": "color"
+        }
+      }
+    },
+    "info": {
+      "light": {
+        "default": {
+          "value": "#1baeff",
+          "type": "color"
+        },
+        "content": {
+          "value": "#f7f8fa",
+          "type": "color"
+        }
+      },
+      "dark": {
+        "default": {
+          "value": "#1baeff",
+          "type": "color"
+        },
+        "content": {
+          "value": "#181b22",
+          "type": "color"
+        }
+      }
+    },
+    "success": {
+      "light": {
+        "default": {
+          "value": "#1cb657",
+          "type": "color"
+        },
+        "content": {
+          "value": "#f7f8fa",
+          "type": "color"
+        }
+      },
+      "dark": {
+        "default": {
+          "value": "#1cb657",
+          "type": "color"
+        },
+        "content": {
+          "value": "#181b22",
+          "type": "color"
+        }
+      }
+    },
+    "warning": {
+      "light": {
+        "default": {
+          "value": "#f3ba25",
+          "type": "color"
+        },
+        "content": {
+          "value": "#f7f8fa",
+          "type": "color"
+        }
+      },
+      "dark": {
+        "default": {
+          "value": "#f3ba25",
+          "type": "color"
+        },
+        "content": {
+          "value": "#181b22",
+          "type": "color"
+        }
+      }
+    },
+    "error": {
+      "light": {
+        "default": {
+          "value": "#f27557",
+          "type": "color"
+        },
+        "content": {
+          "value": "#f7f8fa",
+          "type": "color"
+        }
+      },
+      "dark": {
+        "default": {
+          "value": "#f27557",
+          "type": "color"
+        },
+        "content": {
+          "value": "#181b22",
+          "type": "color"
+        }
+      }
+    }
+  }
+}
