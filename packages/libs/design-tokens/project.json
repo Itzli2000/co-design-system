@@ -6,10 +6,26 @@
   "tags": [],
   "// targets": "to see all targets run: nx show project design-tokens --web",
   "targets": {
-    "build": {
+    "clean": {
       "executor": "nx:run-commands",
       "options": {
+        "command": "rm -rf dist",
+        "cwd": "packages/libs/design-tokens"
+      }
+    },
+    "build:tokens": {
+      "executor": "nx:run-commands",
+      "dependsOn": ["clean"],
+      "options": {
         "command": "style-dictionary build",
+        "cwd": "packages/libs/design-tokens"
+      }
+    },
+    "publish:tokens": {
+      "executor": "nx:run-commands",
+      "dependsOn": ["build:tokens"],
+      "options": {
+        "command": "npm publish",
         "cwd": "packages/libs/design-tokens"
       }
     }

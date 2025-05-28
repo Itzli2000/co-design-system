@@ -3,11 +3,34 @@
   "platforms": {
     "css": {
       "transformGroup": "css",
-      "buildPath": "build/tokens.css",
+      "buildPath": "dist/css/",
       "files": [
         {
           "destination": "_variables.css",
           "format": "css/variables"
+        }
+      ]
+    },
+    "js": {
+      "transformGroup": "js",
+      "buildPath": "dist/js/",
+      "files": [
+        {
+          "destination": "index.js",
+          "format": "javascript/es6"
+        }
+      ]
+    },
+    "ts": {
+      "transformGroup": "js",
+      "buildPath": "dist/js/",
+      "files": [
+        {
+          "destination": "tokens.d.ts",
+          "format": "typescript/es6-declarations",
+          "options": {
+            "outputLiteralTypes": true
+          }
         }
       ]
     }
