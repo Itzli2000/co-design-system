@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "repository": {
     "type": "git",
-    "url": "git@github.com:Itzli2000/co-design-system.git",
+    "url": "https://github.com/Itzli2000/co-design-system.git",
     "directory": "packages/libs/design-tokens"
   },
   "publishConfig": {
