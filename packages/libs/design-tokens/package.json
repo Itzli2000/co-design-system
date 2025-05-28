@@ -1,9 +1,10 @@
 {
   "name": "@codigo-obsidiana/design-tokens",
-  "version": "0.0.1",
+  "version": "0.0.3",
+  "description": "Design tokens for the Código Obsidiana Design System",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Itzli2000/co-design-system.git",
+    "url": "https://github.com/codigo-obsidiana/co-design-system.git",
     "directory": "packages/libs/design-tokens"
   },
   "publishConfig": {

@@ -13,7 +13,7 @@
     },
     "js": {
       "transformGroup": "js",
-      "buildPath": "dist/js/",
+      "buildPath": "dist/",
       "files": [
         {
           "destination": "index.js",
@@ -23,10 +23,10 @@
     },
     "ts": {
       "transformGroup": "js",
-      "buildPath": "dist/js/",
+      "buildPath": "dist/",
       "files": [
         {
-          "destination": "tokens.d.ts",
+          "destination": "index.d.ts",
           "format": "typescript/es6-declarations",
           "options": {
             "outputLiteralTypes": true
