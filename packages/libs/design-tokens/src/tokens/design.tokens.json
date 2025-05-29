@@ -1,0 +1,44 @@
+{
+  "design": {
+    "radius": {
+      "selector": {
+        "value": "1rem",
+        "type": "borderRadius"
+      },
+      "field": {
+        "value": "0.5rem",
+        "type": "borderRadius"
+      },
+      "box": {
+        "value": "1rem",
+        "type": "borderRadius"
+      }
+    },
+    "size": {
+      "selector": {
+        "value": "0.25rem",
+        "type": "size"
+      },
+      "field": {
+        "value": "0.25rem",
+        "type": "size"
+      }
+    },
+    "border": {
+      "width": {
+        "value": "1px",
+        "type": "borderWidth"
+      }
+    },
+    "effect": {
+      "depth": {
+        "value": "1",
+        "type": "number"
+      },
+      "noise": {
+        "value": "0",
+        "type": "number"
+      }
+    }
+  }
+} 

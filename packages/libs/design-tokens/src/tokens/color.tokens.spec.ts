@@ -46,16 +46,29 @@ describe('Color Tokens', () => {
   });
 
   describe('Color Values', () => {
-    const validateColorValue = (value: string) => {
-      // Check if it's a valid hex color
-      const hexColorRegex = /^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/;
-      expect(value).toMatch(hexColorRegex);
+    const validateOKLCHColor = (value: string) => {
+      // OKLCH format: oklch(L% C H)
+      const oklchRegex = /^oklch\(\d+\.?\d*% \d+\.?\d* \d+\.?\d*\)$/;
+      expect(value).toMatch(oklchRegex);
+
+      // Extract values
+      const matches = value.match(/oklch\((\d+\.?\d*)% (\d+\.?\d*) (\d+\.?\d*)\)/);
+      if (!matches) throw new Error('Invalid OKLCH format');
+
+      const [, lightness, chroma, hue] = matches.map(Number);
+
+      // Validate ranges
+      expect(lightness).toBeGreaterThanOrEqual(0);
+      expect(lightness).toBeLessThanOrEqual(100);
+      expect(chroma).toBeGreaterThanOrEqual(0);
+      expect(hue).toBeGreaterThanOrEqual(0);
+      expect(hue).toBeLessThanOrEqual(360);
     };
 
-    it('should have valid hex color values', () => {
+    it('should have valid OKLCH color values', () => {
       const validateColorObject = (obj: any) => {
         if (obj.value && obj.type === 'color') {
-          validateColorValue(obj.value);
+          validateOKLCHColor(obj.value);
         }
         Object.values(obj).forEach(value => {
           if (typeof value === 'object' && value !== null) {
@@ -97,6 +110,54 @@ describe('Color Tokens', () => {
         const lightKeys = Object.keys(tokens.color[category].light);
         const darkKeys = Object.keys(tokens.color[category].dark);
         expect(lightKeys).toEqual(darkKeys);
+      });
+    });
+
+    it('should have consistent token structure across themes', () => {
+      Object.keys(tokens.color).forEach(category => {
+        const lightTokens = tokens.color[category].light;
+        const darkTokens = tokens.color[category].dark;
+
+        Object.keys(lightTokens).forEach(tokenKey => {
+          expect(lightTokens[tokenKey].type).toBe(darkTokens[tokenKey].type);
+        });
+      });
+    });
+  });
+
+  describe('Color Token Naming', () => {
+    it('should follow consistent naming patterns', () => {
+      const validateNaming = (obj: any, path: string[] = []) => {
+        Object.entries(obj).forEach(([key, value]) => {
+          if (typeof value === 'object' && value !== null) {
+            // Check if it's a color token
+            if ('value' in value && 'type' in value) {
+              const fullPath = [...path, key].join('.');
+              // Validate token name format
+              expect(key).toMatch(/^(default|content|\d+)$/);
+            }
+            validateNaming(value, [...path, key]);
+          }
+        });
+      };
+
+      validateNaming(tokens.color);
+    });
+  });
+
+  describe('Color Token Completeness', () => {
+    it('should have all required color variants', () => {
+      const requiredVariants = ['default', 'content'];
+      const baseVariants = ['100', '200', '300', 'content'];
+
+      Object.entries(tokens.color).forEach(([category, themes]) => {
+        if (category === 'base') {
+          expect(Object.keys(themes.light)).toEqual(expect.arrayContaining(baseVariants));
+          expect(Object.keys(themes.dark)).toEqual(expect.arrayContaining(baseVariants));
+        } else {
+          expect(Object.keys(themes.light)).toEqual(expect.arrayContaining(requiredVariants));
+          expect(Object.keys(themes.dark)).toEqual(expect.arrayContaining(requiredVariants));
+        }
       });
     });
   });
