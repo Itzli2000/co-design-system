@@ -47,17 +47,15 @@ describe('Color Tokens', () => {
 
   describe('Color Values', () => {
     const validateOKLCHColor = (value: string) => {
-      // OKLCH format: oklch(L% C H)
+
       const oklchRegex = /^oklch\(\d+\.?\d*% \d+\.?\d* \d+\.?\d*\)$/;
       expect(value).toMatch(oklchRegex);
 
-      // Extract values
       const matches = value.match(/oklch\((\d+\.?\d*)% (\d+\.?\d*) (\d+\.?\d*)\)/);
       if (!matches) throw new Error('Invalid OKLCH format');
 
       const [, lightness, chroma, hue] = matches.map(Number);
 
-      // Validate ranges
       expect(lightness).toBeGreaterThanOrEqual(0);
       expect(lightness).toBeLessThanOrEqual(100);
       expect(chroma).toBeGreaterThanOrEqual(0);
@@ -130,10 +128,7 @@ describe('Color Tokens', () => {
       const validateNaming = (obj: any, path: string[] = []) => {
         Object.entries(obj).forEach(([key, value]) => {
           if (typeof value === 'object' && value !== null) {
-            // Check if it's a color token
             if ('value' in value && 'type' in value) {
-              const fullPath = [...path, key].join('.');
-              // Validate token name format
               expect(key).toMatch(/^(default|content|\d+)$/);
             }
             validateNaming(value, [...path, key]);
