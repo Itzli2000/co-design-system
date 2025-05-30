@@ -8,6 +8,7 @@ export default [
       '@nx/dependency-checks': [
         'error',
         {
+          ignoredDependencies: ['tslib'],
           ignoredFiles: ['{projectRoot}/eslint.config.{js,cjs,mjs}'],
         },
       ],

@@ -1,6 +1,6 @@
 {
   "name": "@codigo-obsidiana/design-tokens",
-  "version": "0.0.4",
+  "version": "0.0.6",
   "description": "Design tokens for the Código Obsidiana Design System",
   "repository": {
     "type": "git",
@@ -10,21 +10,26 @@
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
   },
+  "keywords": [
+    "design-tokens",
+    "style-dictionary",
+    "design-system",
+    "css-variables",
+    "tokens"
+  ],
   "type": "module",
   "main": "./dist/index.js",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
     "./package.json": "./package.json",
+    "./dist/*": "./dist/*",
     ".": {
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
       "require": "./dist/index.js",
       "default": "./dist/index.js"
     }
-  },
-  "dependencies": {
-    "tslib": "^2.3.0"
   },
   "devDependencies": {
     "style-dictionary": "^5.0.0"
