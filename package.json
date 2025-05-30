@@ -2,9 +2,10 @@
   "name": "@co-design-system/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "prepare": "husky"
+  },
   "private": true,
-  "dependencies": {},
   "devDependencies": {
     "@eslint/js": "^9.8.0",
     "@nx/eslint": "21.1.2",
@@ -19,6 +20,7 @@
     "@types/node": "18.16.9",
     "eslint": "^9.8.0",
     "eslint-config-prettier": "^10.0.0",
+    "husky": "9.1.7",
     "jest": "^29.7.0",
     "jest-environment-node": "^29.7.0",
     "jsonc-eslint-parser": "^2.1.0",
