@@ -51,7 +51,7 @@ function getStyleDictionaryConfig(brand) {
 
 console.log('Build started...');
 
-['obsidiana'].map(function (brand) {
+['obsidiana', 'ixiptla'].map(function (brand) {
   console.log('\n==============================================');
   console.log(`\nProcessing: [${brand}]`);
 

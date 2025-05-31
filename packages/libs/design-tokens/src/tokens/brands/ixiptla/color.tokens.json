@@ -1,0 +1,218 @@
+{
+  "color": {
+    "base": {
+      "light": {
+        "100": {
+          "value": "oklch(97% 0.01 83.24)",
+          "type": "color"
+        },
+        "200": {
+          "value": "oklch(85% 0.04 83.24)",
+          "type": "color"
+        },
+        "300": {
+          "value": "oklch(80% 0.06 83.24)",
+          "type": "color"
+        },
+        "content": {
+          "value": "oklch(20% 0.02 83.24)",
+          "type": "color"
+        }
+      },
+      "dark": {
+        "100": {
+          "value": "oklch(18% 0.01 83.24)",
+          "type": "color"
+        },
+        "200": {
+          "value": "oklch(24% 0.015 83.24)",
+          "type": "color"
+        },
+        "300": {
+          "value": "oklch(30% 0.02 83.24)",
+          "type": "color"
+        },
+        "content": {
+          "value": "oklch(95% 0.01 83.24)",
+          "type": "color"
+        }
+      }
+    },
+    "primary": {
+      "light": {
+        "default": {
+          "value": "oklch(55% 0.15 40.24)",
+          "type": "color"
+        },
+        "content": {
+          "value": "oklch(97% 0.01 83.24)",
+          "type": "color"
+        }
+      },
+      "dark": {
+        "default": {
+          "value": "oklch(65% 0.15 40.24)",
+          "type": "color"
+        },
+        "content": {
+          "value": "oklch(15% 0.015 40.24)",
+          "type": "color"
+        }
+      }
+    },
+    "secondary": {
+      "light": {
+        "default": {
+          "value": "oklch(80% 0.06 83.24)",
+          "type": "color"
+        },
+        "content": {
+          "value": "oklch(20% 0.02 83.24)",
+          "type": "color"
+        }
+      },
+      "dark": {
+        "default": {
+          "value": "oklch(50% 0.05 83.24)",
+          "type": "color"
+        },
+        "content": {
+          "value": "oklch(95% 0.01 83.24)",
+          "type": "color"
+        }
+      }
+    },
+    "accent": {
+      "light": {
+        "default": {
+          "value": "oklch(35% 0.08 40.24)",
+          "type": "color"
+        },
+        "content": {
+          "value": "oklch(97% 0.01 83.24)",
+          "type": "color"
+        }
+      },
+      "dark": {
+        "default": {
+          "value": "oklch(75% 0.1 60.24)",
+          "type": "color"
+        },
+        "content": {
+          "value": "oklch(15% 0.01 60.24)",
+          "type": "color"
+        }
+      }
+    },
+    "neutral": {
+      "light": {
+        "default": {
+          "value": "oklch(20% 0.02 83.24)",
+          "type": "color"
+        },
+        "content": {
+          "value": "oklch(97% 0.01 83.24)",
+          "type": "color"
+        }
+      },
+      "dark": {
+        "default": {
+          "value": "oklch(30% 0.01 83.24)",
+          "type": "color"
+        },
+        "content": {
+          "value": "oklch(90% 0.01 83.24)",
+          "type": "color"
+        }
+      }
+    },
+    "info": {
+      "light": {
+        "default": {
+          "value": "oklch(65% 0.2 220)",
+          "type": "color"
+        },
+        "content": {
+          "value": "oklch(98% 0.01 220)",
+          "type": "color"
+        }
+      },
+      "dark": {
+        "default": {
+          "value": "oklch(70% 0.2 220)",
+          "type": "color"
+        },
+        "content": {
+          "value": "oklch(15% 0.01 220)",
+          "type": "color"
+        }
+      }
+    },
+    "success": {
+      "light": {
+        "default": {
+          "value": "oklch(65% 0.25 140)",
+          "type": "color"
+        },
+        "content": {
+          "value": "oklch(98% 0.01 140)",
+          "type": "color"
+        }
+      },
+      "dark": {
+        "default": {
+          "value": "oklch(70% 0.25 140)",
+          "type": "color"
+        },
+        "content": {
+          "value": "oklch(15% 0.01 140)",
+          "type": "color"
+        }
+      }
+    },
+    "warning": {
+      "light": {
+        "default": {
+          "value": "oklch(80% 0.25 80)",
+          "type": "color"
+        },
+        "content": {
+          "value": "oklch(20% 0.05 80)",
+          "type": "color"
+        }
+      },
+      "dark": {
+        "default": {
+          "value": "oklch(85% 0.2 80)",
+          "type": "color"
+        },
+        "content": {
+          "value": "oklch(20% 0.05 80)",
+          "type": "color"
+        }
+      }
+    },
+    "error": {
+      "light": {
+        "default": {
+          "value": "oklch(65% 0.3 30)",
+          "type": "color"
+        },
+        "content": {
+          "value": "oklch(98% 0.01 30)",
+          "type": "color"
+        }
+      },
+      "dark": {
+        "default": {
+          "value": "oklch(70% 0.3 30)",
+          "type": "color"
+        },
+        "content": {
+          "value": "oklch(15% 0.01 30)",
+          "type": "color"
+        }
+      }
+    }
+  }
+} 

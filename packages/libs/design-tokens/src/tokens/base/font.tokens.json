@@ -1,0 +1,14 @@
+{
+  "font": {
+    "family": {
+      "headers": {
+        "value": ["Playfair Display", "ui-serif", "Georgia", "serif"],
+        "type": "fontFamily"
+      },
+      "base": {
+        "value": ["Inter", "ui-sans-serif", "system-ui", "sans-serif"],
+        "type": "fontFamily"
+      }
+    }
+  }
+}

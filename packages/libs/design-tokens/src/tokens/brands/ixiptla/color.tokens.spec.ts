@@ -21,9 +21,9 @@ type ColorTokens = {
   };
 };
 
-const tokens = colorTokens as ColorTokens;
+const tokens = colorTokens as unknown as ColorTokens;
 
-describe('Color Tokens', () => {
+describe('Ixiptla Color Tokens', () => {
   describe('Structure', () => {
     it('should have a valid color object structure', () => {
       expect(tokens).toHaveProperty('color');
@@ -47,7 +47,6 @@ describe('Color Tokens', () => {
 
   describe('Color Values', () => {
     const validateOKLCHColor = (value: string) => {
-
       const oklchRegex = /^oklch\(\d+\.?\d*% \d+\.?\d* \d+\.?\d*\)$/;
       expect(value).toMatch(oklchRegex);
 
@@ -154,6 +153,46 @@ describe('Color Tokens', () => {
           expect(Object.keys(themes.dark)).toEqual(expect.arrayContaining(requiredVariants));
         }
       });
+    });
+  });
+
+  describe('Ixiptla Brand Specific Validations', () => {
+    it('should match the Ixiptla brand color scheme', () => {
+      // Validate primary color hue (around 40.24 degrees - warm orange/red)
+      expect(tokens.color.primary.light.default.value).toContain('40.24');
+      expect(tokens.color.primary.dark.default.value).toContain('40.24');
+      
+      // Validate base colors use consistent hue (83.24 degrees)
+      expect(tokens.color.base.light['100'].value).toContain('83.24');
+      expect(tokens.color.base.dark['100'].value).toContain('83.24');
+    });
+
+    it('should have proper contrast between light and dark themes', () => {
+      // Light theme should have dark content colors
+      const lightContentLightness = parseFloat(tokens.color.base.light.content.value.match(/oklch\((\d+\.?\d*)%/)?.[1] || '0');
+      expect(lightContentLightness).toBeLessThan(50);
+
+      // Dark theme should have light content colors
+      const darkContentLightness = parseFloat(tokens.color.base.dark.content.value.match(/oklch\((\d+\.?\d*)%/)?.[1] || '0');
+      expect(darkContentLightness).toBeGreaterThan(50);
+    });
+
+    it('should maintain brand consistency across semantic colors', () => {
+      // Info color should be blue (220 degrees)
+      expect(tokens.color.info.light.default.value).toContain('220');
+      expect(tokens.color.info.dark.default.value).toContain('220');
+      
+      // Success color should be green (140 degrees)
+      expect(tokens.color.success.light.default.value).toContain('140');
+      expect(tokens.color.success.dark.default.value).toContain('140');
+      
+      // Warning color should be yellow/orange (80 degrees)
+      expect(tokens.color.warning.light.default.value).toContain('80');
+      expect(tokens.color.warning.dark.default.value).toContain('80');
+      
+      // Error color should be red (30 degrees)
+      expect(tokens.color.error.light.default.value).toContain('30');
+      expect(tokens.color.error.dark.default.value).toContain('30');
     });
   });
 }); 
