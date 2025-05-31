@@ -1,109 +1,201 @@
-# CoDesignSystem
+# Código Obsidiana Design System
 
 <a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
 
-✨ Your new, shiny [Nx workspace](https://nx.dev) is ready ✨.
+A modern and scalable design system built with [Nx](https://nx.dev) that provides consistent design tokens and reusable components for web applications.
 
-[Learn more about this workspace setup and its capabilities](https://nx.dev/nx-api/js?utm_source=nx_project&amp;utm_medium=readme&amp;utm_campaign=nx_projects) or run `npx nx graph` to visually explore what was created. Now, let's get you up to speed!
+## 🎯 Features
 
-## Generate a library
+- **Design Tokens**: Complete design token system using [Style Dictionary](https://amzn.github.io/style-dictionary/)
+- **Modern Colors**: Color palette based on OKLCH for better visual perception
+- **Dark Mode**: Native support for light and dark themes
+- **TypeScript**: Fully typed for better development experience
+- **Monorepo**: Efficient package management with Nx
+- **CI/CD**: Automated setup with Husky and Git hooks
+- **Testing**: Complete testing setup with Jest
 
-```sh
-npx nx g @nx/js:lib packages/pkg1 --publishable --importPath=@my-org/pkg1
+## 📦 Packages
+
+### @codigo-obsidiana/design-tokens
+
+Fundamental design tokens including:
+
+- **Colors**: Complete palette with light/dark mode variants
+  - Base colors (light/dark backgrounds)
+  - Semantic colors (primary, secondary, accent, neutral)
+  - Status colors (info, success, warning, error)
+- **Design**: Tokens for visual elements
+  - Border radius (selector, field, box)
+  - Sizes and spacing
+  - Border widths
+  - Effects (depth, noise)
+
+## 🚀 Installation
+
+### Prerequisites
+
+- Node.js 18.16.9 or higher
+- pnpm 10.10.0 or higher
+
+### Workspace Setup
+
+```bash
+# Clone the repository
+git clone https://github.com/codigo-obsidiana/co-design-system.git
+cd co-design-system
+
+# Install dependencies
+pnpm install
+
+# Prepare Git hooks
+pnpm prepare
 ```
 
-## Run tasks
+## 💻 Usage
 
-To build the library use:
+### Build all packages
 
-```sh
-npx nx build pkg1
+```bash
+npx nx build design-tokens
 ```
 
-To run any task with Nx use:
+### Using design tokens
 
-```sh
-npx nx <target> <project-name>
+#### CSS Variables
+
+```css
+@import '@codigo-obsidiana/design-tokens/dist/css/_variables.css';
+
+.my-component {
+  background-color: var(--color-primary-light-default);
+  color: var(--color-primary-light-content);
+  border-radius: var(--design-radius-box);
+}
 ```
 
-These targets are either [inferred automatically](https://nx.dev/concepts/inferred-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) or defined in the `project.json` or `package.json` files.
+#### JavaScript/TypeScript
 
-[More about running tasks in the docs &raquo;](https://nx.dev/features/run-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+```typescript
+import { tokens } from '@codigo-obsidiana/design-tokens';
 
-## Versioning and releasing
-
-To version and release the library use
-
-```
-npx nx release
+const primaryColor = tokens.color.primary.light.default;
+const borderRadius = tokens.design.radius.box;
 ```
 
-Pass `--dry-run` to see what would happen without actually releasing the library.
+## 🛠️ Development
 
-[Learn more about Nx release &raquo;](hhttps://nx.dev/features/manage-releases?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+### Available commands
 
-## Keep TypeScript project references up to date
+```bash
+# Run tests
+npx nx test design-tokens
 
-Nx automatically updates TypeScript [project references](https://www.typescriptlang.org/docs/handbook/project-references.html) in `tsconfig.json` files to ensure they remain accurate based on your project dependencies (`import` or `require` statements). This sync is automatically done when running tasks such as `build` or `typecheck`, which require updated references to function correctly.
+# Lint code
+npx nx lint design-tokens
 
-To manually trigger the process to sync the project graph dependencies information to the TypeScript project references, run the following command:
+# View dependency graph
+npx nx graph
 
-```sh
-npx nx sync
-```
+# Run commands on affected projects
+npx nx affected --targets=lint,test,build
 
-You can enforce that the TypeScript project references are always in the correct state when running in CI by adding a step to your CI job configuration that runs the following command:
-
-```sh
+# Check TypeScript sync
 npx nx sync:check
 ```
 
-[Learn more about nx sync](https://nx.dev/reference/nx-commands#sync)
+### Project structure
 
-## Set up CI!
-
-### Step 1
-
-To connect to Nx Cloud, run the following command:
-
-```sh
-npx nx connect
+```
+co-design-system/
+├── packages/
+│   └── libs/
+│       └── design-tokens/          # Design tokens
+│           ├── src/tokens/         # JSON token definitions
+│           ├── config.json         # Style Dictionary config
+│           └── dist/               # Compiled tokens
+├── .husky/                         # Git hooks
+├── nx.json                         # Nx configuration
+└── pnpm-workspace.yaml            # Workspace configuration
 ```
 
-Connecting to Nx Cloud ensures a [fast and scalable CI](https://nx.dev/ci/intro/why-nx-cloud?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) pipeline. It includes features such as:
+### Adding new tokens
 
-- [Remote caching](https://nx.dev/ci/features/remote-cache?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Task distribution across multiple machines](https://nx.dev/ci/features/distribute-task-execution?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Automated e2e test splitting](https://nx.dev/ci/features/split-e2e-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Task flakiness detection and rerunning](https://nx.dev/ci/features/flaky-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+1. Edit JSON files in `packages/libs/design-tokens/src/tokens/`
+2. Run build: `npx nx build design-tokens`
+3. Tokens will be automatically generated in CSS, JS, and TypeScript
 
-### Step 2
+### Contributing
 
-Use the following command to configure a CI workflow for your workspace:
+1. Fork the repository
+2. Create a feature branch: `git checkout -b feat(scope): description`
+3. Make your changes following project conventions
+4. Ensure all tests pass: `npx nx test design-tokens`
+5. Commit using [Conventional Commits](https://www.conventionalcommits.org/)
+6. Push and create a Pull Request
 
-```sh
-npx nx g ci-workflow
+### Commit conventions
+
+This project uses [Conventional Commits](https://www.conventionalcommits.org/):
+
+```
+<type>[optional scope]: <description>
+
+[optional body]
+
+[optional footer(s)]
 ```
 
-[Learn more about Nx on CI](https://nx.dev/ci/intro/ci-with-nx#ready-get-started-with-your-provider?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+**Examples:**
+- `feat(tokens): add new color palette`
+- `fix(tokens): correct primary color contrast ratio`
+- `docs(readme): update installation instructions`
 
-## Install Nx Console
+## 🔧 Configuration
 
-Nx Console is an editor extension that enriches your developer experience. It lets you run tasks, generate code, and improves code autocompletion in your IDE. It is available for VSCode and IntelliJ.
+### Nx
 
-[Install Nx Console &raquo;](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+The project uses Nx for:
+- Build optimization and caching
+- Dependency graph analysis
+- Affected project detection
+- Task parallelization
 
-## Useful links
+### Style Dictionary
 
-Learn more:
+Tokens are processed using Style Dictionary to generate:
+- CSS custom properties
+- JavaScript/TypeScript exports
+- Automatic documentation
 
-- [Learn more about this workspace setup](https://nx.dev/nx-api/js?utm_source=nx_project&amp;utm_medium=readme&amp;utm_campaign=nx_projects)
-- [Learn about Nx on CI](https://nx.dev/ci/intro/ci-with-nx?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Releasing Packages with Nx release](https://nx.dev/features/manage-releases?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [What are Nx plugins?](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+### Husky
 
-And join the Nx community:
-- [Discord](https://go.nx.dev/community)
-- [Follow us on X](https://twitter.com/nxdevtools) or [LinkedIn](https://www.linkedin.com/company/nrwl)
-- [Our Youtube channel](https://www.youtube.com/@nxdevtools)
-- [Our blog](https://nx.dev/blog?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+Configured Git hooks:
+- **pre-commit**: Run lint, test, and build on affected projects
+
+## 📝 Versioning and releases
+
+To version and publish packages:
+
+```bash
+# Version (dry-run)
+npx nx release --dry-run
+
+# Publish new version
+npx nx release
+```
+
+## 🤝 Community
+
+- [GitHub Issues](https://github.com/codigo-obsidiana/co-design-system/issues)
+- [Discussions](https://github.com/codigo-obsidiana/co-design-system/discussions)
+
+## 📄 License
+
+MIT License - see [LICENSE](LICENSE) for details.
+
+## 🔗 Useful links
+
+- [Nx Documentation](https://nx.dev)
+- [Style Dictionary](https://amzn.github.io/style-dictionary/)
+- [OKLCH Color Space](https://oklch.com/)
+- [Conventional Commits](https://www.conventionalcommits.org/)
