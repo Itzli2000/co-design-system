@@ -18,18 +18,26 @@
     "tokens"
   ],
   "type": "module",
-  "main": "./dist/index.js",
-  "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "main": "./dist/obsidiana/index.js",
+  "module": "./dist/obsidiana/index.js",
+  "types": "./dist/obsidiana/index.d.ts",
   "exports": {
-    "./package.json": "./package.json",
-    "./dist/*": "./dist/*",
     ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.js",
-      "require": "./dist/index.js",
-      "default": "./dist/index.js"
-    }
+      "types": "./dist/obsidiana/index.d.ts",
+      "import": "./dist/obsidiana/index.js",
+      "require": "./dist/obsidiana/index.js",
+      "default": "./dist/obsidiana/index.js"
+    },
+    "./obsidiana": {
+      "types": "./dist/obsidiana/index.d.ts",
+      "import": "./dist/obsidiana/index.js",
+      "default": "./dist/obsidiana/index.js"
+    },
+    "./obsidiana/css": "./dist/obsidiana/css/_variables.css",
+    "./css": "./dist/obsidiana/css/_variables.css",
+    "./brands/*": "./dist/*/index.js",
+    "./brands/*/css": "./dist/*/css/_variables.css",
+    "./package.json": "./package.json"
   },
   "devDependencies": {
     "style-dictionary": "^5.0.0"

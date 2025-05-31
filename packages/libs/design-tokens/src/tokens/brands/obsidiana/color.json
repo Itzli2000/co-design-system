@@ -1,0 +1,127 @@
+{
+  "color": {
+    "brand": {
+      "primary": {
+        "default": {
+          "value": "oklch(72.6% 0.21 245)",
+          "type": "color",
+          "description": "Primary brand color for main actions and elements"
+        },
+        "content": {
+          "light": {
+            "value": "oklch(98% 0.003 262.2)",
+            "type": "color",
+            "description": "Content color on primary background in light theme"
+          },
+          "dark": {
+            "value": "oklch(26.2% 0.003 262.2)",
+            "type": "color",
+            "description": "Content color on primary background in dark theme"
+          }
+        }
+      },
+      "secondary": {
+        "default": {
+          "value": "oklch(78.3% 0.22 246)",
+          "type": "color",
+          "description": "Secondary brand color for supporting actions and elements"
+        },
+        "content": {
+          "light": {
+            "value": "oklch(98% 0.003 262.2)",
+            "type": "color",
+            "description": "Content color on secondary background in light theme"
+          },
+          "dark": {
+            "value": "oklch(26.2% 0.003 262.2)",
+            "type": "color",
+            "description": "Content color on secondary background in dark theme"
+          }
+        }
+      },
+      "tertiary": {
+        "default": {
+          "value": "oklch(70.3% 0.16 35)",
+          "type": "color",
+          "description": "Tertiary brand color for accent elements and highlights"
+        },
+        "content": {
+          "light": {
+            "value": "oklch(98% 0.003 262.2)",
+            "type": "color",
+            "description": "Content color on tertiary background in light theme"
+          },
+          "dark": {
+            "value": "oklch(26.2% 0.003 262.2)",
+            "type": "color",
+            "description": "Content color on tertiary background in dark theme"
+          }
+        }
+      },
+      "neutral": {
+        "default": {
+          "light": {
+            "value": "oklch(95% 0.026 261.2)",
+            "type": "color",
+            "description": "Neutral color for light theme"
+          },
+          "dark": {
+            "value": "oklch(33.7% 0.026 261.2)",
+            "type": "color",
+            "description": "Neutral color for dark theme"
+          }
+        },
+        "content": {
+          "light": {
+            "value": "oklch(20% 0.006 262)",
+            "type": "color",
+            "description": "Content color on neutral background in light theme"
+          },
+          "dark": {
+            "value": "oklch(71.8% 0.006 262)",
+            "type": "color",
+            "description": "Content color on neutral background in dark theme"
+          }
+        }
+      },
+      "surface": {
+        "100": {
+          "light": {
+            "value": "oklch(98% 0.014 261.3)",
+            "type": "color",
+            "description": "Lightest surface color for light theme"
+          },
+          "dark": {
+            "value": "oklch(22.3% 0.014 261.3)",
+            "type": "color",
+            "description": "Lightest surface color for dark theme"
+          }
+        },
+        "200": {
+          "light": {
+            "value": "oklch(95% 0.026 261.2)",
+            "type": "color",
+            "description": "Medium surface color for light theme"
+          },
+          "dark": {
+            "value": "oklch(33.7% 0.026 261.2)",
+            "type": "color",
+            "description": "Medium surface color for dark theme"
+          }
+        },
+        "300": {
+          "light": {
+            "value": "oklch(90% 0.015 91.3)",
+            "type": "color",
+            "description": "Darkest surface color for light theme"
+          },
+          "dark": {
+            "value": "oklch(94.4% 0.015 91.3)",
+            "type": "color",
+            "description": "Darkest surface color for dark theme"
+          }
+        }
+      }
+    }
+  }
+}

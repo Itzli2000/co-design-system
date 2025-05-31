@@ -1,0 +1,82 @@
+{
+  "color": {
+    "semantic": {
+      "success": {
+        "default": {
+          "value": "oklch(68% 0.18 150)",
+          "type": "color",
+          "description": "Success state color for positive feedback and confirmations"
+        },
+        "content": {
+          "light": {
+            "value": "{color.brand.primary.content.light}",
+            "type": "color",
+            "description": "Content color on success background in light theme"
+          },
+          "dark": {
+            "value": "{color.brand.primary.content.dark}",
+            "type": "color",
+            "description": "Content color on success background in dark theme"
+          }
+        }
+      },
+      "warning": {
+        "default": {
+          "value": "oklch(82% 0.16 85)",
+          "type": "color",
+          "description": "Warning state color for cautionary messages and alerts"
+        },
+        "content": {
+          "light": {
+            "value": "{color.brand.primary.content.light}",
+            "type": "color",
+            "description": "Content color on warning background in light theme"
+          },
+          "dark": {
+            "value": "{color.brand.primary.content.dark}",
+            "type": "color",
+            "description": "Content color on warning background in dark theme"
+          }
+        }
+      },
+      "error": {
+        "default": {
+          "value": "{color.brand.tertiary.default}",
+          "type": "color",
+          "description": "Error state color for destructive actions and error messages"
+        },
+        "content": {
+          "light": {
+            "value": "{color.brand.tertiary.content.light}",
+            "type": "color",
+            "description": "Content color on error background in light theme"
+          },
+          "dark": {
+            "value": "{color.brand.tertiary.content.dark}",
+            "type": "color",
+            "description": "Content color on error background in dark theme"
+          }
+        }
+      },
+      "info": {
+        "default": {
+          "value": "{color.brand.primary.default}",
+          "type": "color",
+          "description": "Information state color for informational messages and highlights"
+        },
+        "content": {
+          "light": {
+            "value": "{color.brand.primary.content.light}",
+            "type": "color",
+            "description": "Content color on info background in light theme"
+          },
+          "dark": {
+            "value": "{color.brand.primary.content.dark}",
+            "type": "color",
+            "description": "Content color on info background in dark theme"
+          }
+        }
+      }
+    }
+  }
+} 
