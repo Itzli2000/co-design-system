@@ -1,6 +1,6 @@
 {
   "name": "@codigo-obsidiana/design-tokens",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Design tokens for the Código Obsidiana Design System",
   "repository": {
     "type": "git",
@@ -28,15 +28,14 @@
       "require": "./dist/obsidiana/index.js",
       "default": "./dist/obsidiana/index.js"
     },
-    "./obsidiana": {
-      "types": "./dist/obsidiana/index.d.ts",
-      "import": "./dist/obsidiana/index.js",
-      "default": "./dist/obsidiana/index.js"
-    },
-    "./obsidiana/css": "./dist/obsidiana/css/_variables.css",
     "./css": "./dist/obsidiana/css/_variables.css",
-    "./brands/*": "./dist/*/index.js",
-    "./brands/*/css": "./dist/*/css/_variables.css",
+    "./*/css": "./dist/*/css/_variables.css",
+    "./*/css/": "./dist/*/css/index.css",
+    "./*": {
+      "types": "./dist/*/index.d.ts",
+      "import": "./dist/*/index.js",
+      "default": "./dist/*/index.js"
+    },
     "./package.json": "./package.json"
   },
   "devDependencies": {
