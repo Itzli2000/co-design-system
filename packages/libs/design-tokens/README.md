@@ -1,46 +1,51 @@
 # @codigo-obsidiana/design-tokens
 
-Design token system for the **Código Obsidiana Design System**. This package provides consistent and scalable design tokens for colors, spacing, typography, and other visual elements of the user interface.
+Sistema de design tokens para el **Código Obsidiana Design System**. Este paquete proporciona tokens de diseño consistentes y escalables para colores, espaciado, tipografía y otros elementos visuales de la interfaz de usuario.
 
-## 🎯 Features
+## ✨ Características
 
-- **🎨 Modern color palette**: Based on OKLCH color space for better visual perception
-- **🌓 Theme support**: Tokens optimized for light and dark modes
-- **📱 Responsive**: Tokens for different devices and screen sizes
-- **🔧 TypeScript**: Fully typed for better development experience
-- **🎯 Style Dictionary**: Automated processing to multiple formats
-- **🚀 Tree-shakeable**: Selective imports to optimize bundle size
+- **🎨 Paleta de colores moderna**: Basada en el espacio de color OKLCH para mejor percepción visual
+- **🏢 Soporte multi-marca**: Tokens optimizados para diferentes marcas (Obsidiana, Ixiptla)
+- **🌓 Soporte de temas**: Tokens optimizados para modos claro y oscuro
+- **📱 Responsive**: Tokens para diferentes dispositivos y tamaños de pantalla
+- **🔧 TypeScript**: Completamente tipado para mejor experiencia de desarrollo
+- **🎯 Style Dictionary**: Procesamiento automatizado a múltiples formatos
+- **🚀 Tree-shakeable**: Importaciones selectivas para optimizar el bundle
+- **📦 Múltiples formatos**: CSS variables, ES6 modules, TypeScript declarations
 
-## 📦 Installation
+## 📦 Instalación
 
 ```bash
 # npm
 npm install @codigo-obsidiana/design-tokens
 
-# yarn
+# yarn  
 yarn add @codigo-obsidiana/design-tokens
 
 # pnpm
 pnpm add @codigo-obsidiana/design-tokens
 ```
 
-## 🚀 Usage
+## 🚀 Uso
 
-### CSS Variables
+### Marca Principal (Obsidiana)
+
+#### CSS Variables
 
 ```css
-/* Import all CSS variables */
-@import '@codigo-obsidiana/design-tokens/dist/css/_variables.css';
+/* Importar todas las variables CSS */
+@import '@codigo-obsidiana/design-tokens/css';
 
-/* Use tokens in your styles */
+/* Usar tokens en tus estilos */
 .button {
   background-color: var(--color-primary-light-default);
   color: var(--color-primary-light-content);
   border-radius: var(--design-radius-field);
   border: var(--design-border-width) solid transparent;
+  padding: var(--design-size-field);
 }
 
-/* Dark theme using media queries */
+/* Tema oscuro usando media queries */
 @media (prefers-color-scheme: dark) {
   .button {
     background-color: var(--color-primary-dark-default);
@@ -49,18 +54,19 @@ pnpm add @codigo-obsidiana/design-tokens
 }
 ```
 
-### JavaScript/TypeScript
+#### JavaScript/TypeScript
 
 ```typescript
-// Import specific tokens
+// Importar tokens específicos de Obsidiana
 import { 
   ColorPrimaryLightDefault,
   ColorPrimaryLightContent,
   DesignRadiusField,
-  DesignBorderWidth 
+  DesignBorderWidth,
+  DesignSizeField
 } from '@codigo-obsidiana/design-tokens';
 
-// Use with styled-components
+// Usar con styled-components
 import styled from 'styled-components';
 
 const Button = styled.button`
@@ -68,14 +74,47 @@ const Button = styled.button`
   color: ${ColorPrimaryLightContent};
   border-radius: ${DesignRadiusField};
   border: ${DesignBorderWidth} solid transparent;
+  padding: ${DesignSizeField};
 `;
 
-// Use in CSS-in-JS styles
+// Usar en estilos CSS-in-JS
 const buttonStyles = {
   backgroundColor: ColorPrimaryLightDefault,
   color: ColorPrimaryLightContent,
   borderRadius: DesignRadiusField,
   border: `${DesignBorderWidth} solid transparent`,
+  padding: DesignSizeField,
+};
+```
+
+### Soporte Multi-Marca
+
+#### Marca Específica (Ixiptla)
+
+```typescript
+// Importar tokens de marca específica
+import { 
+  ColorPrimaryLightDefault as IxiptlaColorPrimary,
+  ColorSecondaryLightDefault as IxiptlaColorSecondary
+} from '@codigo-obsidiana/design-tokens/brands/ixiptla';
+
+// CSS para marca específica
+@import '@codigo-obsidiana/design-tokens/brands/ixiptla/css';
+```
+
+#### Comparación de Marcas
+
+```typescript
+// Cambio dinámico entre marcas
+const getBrandTokens = (brand: 'obsidiana' | 'ixiptla') => {
+  switch (brand) {
+    case 'obsidiana':
+      return import('@codigo-obsidiana/design-tokens/obsidiana');
+    case 'ixiptla':
+      return import('@codigo-obsidiana/design-tokens/brands/ixiptla');
+    default:
+      return import('@codigo-obsidiana/design-tokens'); // Por defecto Obsidiana
+  }
 };
 ```
 
@@ -87,124 +126,218 @@ const buttonStyles = {
   background-color: var(--color-primary-light-default);
   color: var(--color-primary-light-content);
   border-radius: var(--design-radius-field);
+  transition: all 0.2s ease;
+}
+
+.button:hover {
+  background-color: var(--color-secondary-light-default);
+}
+
+.button--success {
+  background-color: var(--color-success-light-default);
+  color: var(--color-success-light-content);
 }
 
 // Button.tsx
 import styles from './styles.module.css';
-import '@codigo-obsidiana/design-tokens/dist/css/_variables.css';
+import '@codigo-obsidiana/design-tokens/css';
 
-export const Button = ({ children }) => (
-  <button className={styles.button}>
+interface ButtonProps {
+  variant?: 'primary' | 'success' | 'warning' | 'error';
+  children: React.ReactNode;
+}
+
+export const Button = ({ variant = 'primary', children }: ButtonProps) => (
+  <button className={`${styles.button} ${variant !== 'primary' ? styles[`button--${variant}`] : ''}`}>
     {children}
   </button>
 );
 ```
 
-## 🎨 Available Tokens
+## 🎨 Tokens Disponibles
 
-### Colors
+### Colores
 
-#### Base Colors
-- `color-base-light-*` / `color-base-dark-*`: Base backgrounds and surfaces
-  - `100`, `200`, `300`: Different intensity levels
-  - `content`: Text color on base backgrounds
+#### Colores Base
+- `color-base-light-*` / `color-base-dark-*`: Fondos base y superficies
+  - `100`: Nivel más claro/oscuro
+  - `200`: Nivel intermedio
+  - `300`: Nivel más intenso
+  - `content`: Color de texto sobre fondos base
 
-#### Semantic Colors
-- `color-primary-*`: Primary brand color
-- `color-secondary-*`: Secondary brand color  
-- `color-accent-*`: Accent color for highlighting elements
-- `color-neutral-*`: Neutral color for secondary elements
+#### Colores Semánticos
+- `color-primary-*`: Color primario de marca
+- `color-secondary-*`: Color secundario de marca  
+- `color-accent-*`: Color de acento para resaltar elementos
+- `color-neutral-*`: Color neutral para elementos secundarios
 
-#### Status Colors
-- `color-info-*`: General information
-- `color-success-*`: Successful operations
-- `color-warning-*`: Warnings
-- `color-error-*`: Errors and failure states
+#### Colores de Estado
+- `color-info-*`: Información general
+- `color-success-*`: Operaciones exitosas
+- `color-warning-*`: Advertencias
+- `color-error-*`: Errores y estados de falla
 
-**Each color includes variants for:**
-- `*-light-default` / `*-dark-default`: Main color
-- `*-light-content` / `*-dark-content`: Text/content color
+**Cada color incluye variantes para:**
+- `*-light-default` / `*-dark-default`: Color principal
+- `*-light-content` / `*-dark-content`: Color de texto/contenido
 
-### Design
+### Diseño
 
 #### Border Radius
-- `design-radius-selector`: For selectable elements (1rem)
-- `design-radius-field`: For form fields (0.5rem)
-- `design-radius-box`: For containers and boxes (1rem)
-
-#### Sizes
-- `design-size-selector`: Size for selectable elements (0.25rem)
-- `design-size-field`: Size for fields (0.25rem)
-
-#### Borders
-- `design-border-width`: Standard border width (1px)
-
-#### Effects
-- `design-effect-depth`: Shadow depth (1)
-- `design-effect-noise`: Effect noise (0)
-
-## 🎨 OKLCH Color Palette
-
-This design system uses the OKLCH color space which offers:
-
-- **Better perceptual uniformity**: Colors appear more consistent to the human eye
-- **Wider gamut**: Access to more vibrant and precise colors
-- **Better interpolation**: Smoother color transitions
-- **Future support**: Ready for displays with wider color gamuts
-
-### Example OKLCH values:
 ```css
-/* Format: oklch(lightness chroma hue) */
+--design-radius-selector: 1rem;    /* Para elementos seleccionables */
+--design-radius-field: 0.5rem;     /* Para campos de formulario */
+--design-radius-box: 1rem;         /* Para contenedores y cajas */
+```
+
+#### Tamaños
+```css
+--design-size-selector: 0.25rem;   /* Tamaño para elementos seleccionables */
+--design-size-field: 0.25rem;      /* Tamaño para campos */
+```
+
+#### Bordes
+```css
+--design-border-width: 1px;        /* Ancho de borde estándar */
+```
+
+#### Efectos
+```css
+--design-effect-depth: 1;          /* Profundidad de sombra */
+--design-effect-noise: 0;          /* Ruido de efecto */
+```
+
+### Tipografía
+
+```css
+--font-family-primary: /* Familia tipográfica principal */
+--font-family-secondary: /* Familia tipográfica secundaria */
+```
+
+## 🎨 Paleta de Colores OKLCH
+
+Este sistema de diseño utiliza el espacio de color OKLCH que ofrece:
+
+- **Mejor uniformidad perceptual**: Los colores aparecen más consistentes al ojo humano
+- **Gamut más amplio**: Acceso a colores más vibrantes y precisos
+- **Mejor interpolación**: Transiciones de color más suaves
+- **Soporte futuro**: Listo para pantallas con gamuts de color más amplios
+
+### Valores OKLCH de ejemplo:
+
+```css
+/* Formato: oklch(lightness chroma hue) */
+/* Obsidiana */
 --color-primary-light-default: oklch(72.6% 0.21 245);
 --color-success-light-default: oklch(68% 0.18 150);
 --color-warning-light-default: oklch(82% 0.16 85);
+--color-error-light-default: oklch(70.3% 0.16 35);
+
+/* Base colors */
+--color-base-light-100: oklch(98% 0.014 261.3);
+--color-base-light-content: oklch(20% 0.006 262);
 ```
 
-## 🛠️ Development
+### Beneficios del OKLCH
 
-### Build tokens
+1. **Consistencia visual**: Valores de luminosidad que se perciben uniformes
+2. **Accesibilidad**: Mejor control del contraste para cumplir WCAG
+3. **Compatibilidad**: Fallback automático a colores sRGB en navegadores antiguos
+4. **Futuro**: Preparado para Display P3 y otros espacios de color amplios
+
+## 🛠️ Desarrollo
+
+### Construir tokens
 
 ```bash
-# From monorepo root
-npx nx build design-tokens
+# Desde la raíz del monorepo
+npx nx build:tokens design-tokens
 
-# Or from package directory
+# O desde el directorio del paquete
 npm run build:tokens
 ```
 
-### File structure
+### Estructura de archivos
 
 ```
 packages/libs/design-tokens/
-├── src/tokens/
-│   ├── color.tokens.json      # Color definitions
-│   ├── design.tokens.json     # Design tokens
-│   └── *.tokens.spec.ts       # Token tests
-├── config.json                # Style Dictionary config
+├── src/
+│   └── tokens/
+│       ├── base/                    # Tokens base compartidos
+│       │   ├── design.tokens.json   # Tokens de diseño
+│       │   ├── font.tokens.json     # Tokens tipográficos
+│       │   └── *.spec.ts           # Tests de tokens
+│       └── brands/                  # Tokens específicos por marca
+│           ├── obsidiana/
+│           │   ├── color.tokens.json
+│           │   └── *.spec.ts
+│           └── ixiptla/
+│               ├── color.tokens.json
+│               └── *.spec.ts
+├── scripts/
+│   └── build.js                    # Script de construcción
+├── config.json                     # Configuración Style Dictionary
 ├── dist/
-│   ├── css/_variables.css     # CSS variables
-│   ├── index.js              # ES6 exports
-│   └── index.d.ts            # TypeScript definitions
+│   ├── obsidiana/                  # Salida marca Obsidiana
+│   │   ├── css/_variables.css      # Variables CSS
+│   │   ├── index.js               # Exports ES6
+│   │   └── index.d.ts             # Definiciones TypeScript
+│   └── ixiptla/                    # Salida marca Ixiptla
+│       ├── css/_variables.css
+│       ├── index.js
+│       └── index.d.ts
 └── README.md
 ```
 
-### Adding new tokens
+### Agregar nuevos tokens
 
-1. **Edit JSON files**: Modify files in `src/tokens/`
-2. **Follow structure**: Maintain existing hierarchy
-3. **Run build**: `npx nx build design-tokens`
-4. **Verify output**: Check generated files in `dist/`
+1. **Editar archivos JSON**: Modifica archivos en `src/tokens/`
+2. **Mantener estructura**: Mantén la jerarquía existente
+3. **Ejecutar build**: `npx nx build:tokens design-tokens`
+4. **Verificar salida**: Revisa archivos generados en `dist/`
 
-#### Example new token:
+#### Ejemplo de nuevo token:
 
 ```json
-// src/tokens/design.tokens.json
+// src/tokens/base/design.tokens.json
 {
   "design": {
     "shadow": {
       "small": {
-        "value": "0 1px 2px rgba(0, 0, 0, 0.1)",
+        "value": "0 1px 2px oklch(0% 0 0 / 0.1)",
         "type": "boxShadow"
+      },
+      "medium": {
+        "value": "0 4px 6px oklch(0% 0 0 / 0.1)",
+        "type": "boxShadow"
+      },
+      "large": {
+        "value": "0 10px 15px oklch(0% 0 0 / 0.1)",
+        "type": "boxShadow"
+      }
+    }
+  }
+}
+```
+
+#### Ejemplo de color de marca:
+
+```json
+// src/tokens/brands/obsidiana/color.tokens.json
+{
+  "color": {
+    "brand": {
+      "light": {
+        "primary": {
+          "value": "oklch(72.6% 0.21 245)",
+          "type": "color"
+        }
+      },
+      "dark": {
+        "primary": {
+          "value": "oklch(72.6% 0.21 245)",
+          "type": "color"
+        }
       }
     }
   }
@@ -214,61 +347,144 @@ packages/libs/design-tokens/
 ### Testing
 
 ```bash
-# Run tests
+# Ejecutar tests
 npx nx test design-tokens
 
-# Watch mode
+# Modo watch
 npx nx test design-tokens --watch
+
+# Coverage
+npx nx test design-tokens --coverage
 ```
 
-## 📦 Outputs
+## 📦 Formatos de Salida
 
-This package generates multiple formats for maximum compatibility:
+Este paquete genera múltiples formatos para máxima compatibilidad:
 
-### CSS Variables (`dist/css/_variables.css`)
+### Variables CSS (`dist/*/css/_variables.css`)
 ```css
 :root {
   --color-primary-light-default: oklch(72.6% 0.21 245);
+  --color-base-light-100: oklch(98% 0.014 261.3);
   --design-radius-field: 0.5rem;
+  --design-border-width: 1px;
 }
 ```
 
-### JavaScript ES6 (`dist/index.js`)
+### JavaScript ES6 (`dist/*/index.js`)
 ```javascript
 export const ColorPrimaryLightDefault = "oklch(72.6% 0.21 245)";
+export const ColorBaseLightOne00 = "oklch(98% 0.014 261.3)";
 export const DesignRadiusField = "0.5rem";
+export const DesignBorderWidth = "1px";
 ```
 
-### TypeScript Declarations (`dist/index.d.ts`)
+### Declaraciones TypeScript (`dist/*/index.d.ts`)
 ```typescript
 export declare const ColorPrimaryLightDefault: "oklch(72.6% 0.21 245)";
+export declare const ColorBaseLightOne00: "oklch(98% 0.014 261.3)";
 export declare const DesignRadiusField: "0.5rem";
+export declare const DesignBorderWidth: "1px";
 ```
 
-## 🤝 Contributing
+## 🎯 Mejores Prácticas
 
-1. Fork the main repository
-2. Create a branch: `git checkout -b feat(tokens): description`
-3. Make changes to JSON token files
-4. Run tests: `npx nx test design-tokens`
-5. Build tokens: `npx nx build design-tokens`
-6. Commit using [Conventional Commits](https://www.conventionalcommits.org/)
-7. Create a Pull Request
+### Naming Convention
 
-### Conventions
+```css
+/* Estructura: [category]-[type]-[variant]-[state] */
+--color-primary-light-default
+--color-success-dark-content
+--design-radius-field
+--design-size-selector
+```
 
-- **Token names**: Use kebab-case for CSS and PascalCase for JS/TS
-- **Hierarchical structure**: Maintain organization by categories
-- **OKLCH values**: Use `oklch(L% C H)` format for colors
-- **Units**: Use `rem` for sizes, `px` for borders
+### Accesibilidad
 
-## 📄 License
+```css
+/* Usar tokens de contraste apropiados */
+.text-on-primary {
+  background-color: var(--color-primary-light-default);
+  color: var(--color-primary-light-content); /* Asegura contraste WCAG AA */
+}
 
-MIT - see [LICENSE](../../../LICENSE) for details.
+/* Respetar preferencias del usuario */
+@media (prefers-color-scheme: dark) {
+  .text-on-primary {
+    background-color: var(--color-primary-dark-default);
+    color: var(--color-primary-dark-content);
+  }
+}
+```
 
-## 🔗 Links
+### Performance
+
+```typescript
+// Tree-shaking: importa solo lo que necesitas
+import { ColorPrimaryLightDefault, DesignRadiusField } from '@codigo-obsidiana/design-tokens';
+
+// En lugar de:
+// import * as tokens from '@codigo-obsidiana/design-tokens'; // ❌
+```
+
+### Multi-marca
+
+```typescript
+// Configuración dinámica de marca
+const ThemeProvider = ({ brand, children }) => {
+  useEffect(() => {
+    // Cargar CSS de marca específica
+    import(`@codigo-obsidiana/design-tokens/brands/${brand}/css`);
+  }, [brand]);
+
+  return <div data-brand={brand}>{children}</div>;
+};
+```
+
+## 🤝 Contribución
+
+1. Fork el repositorio principal
+2. Crear una rama: `git checkout -b feat(tokens): descripción`
+3. Hacer cambios en archivos JSON de tokens
+4. Ejecutar tests: `npx nx test design-tokens`
+5. Construir tokens: `npx nx build:tokens design-tokens`
+6. Commit usando [Conventional Commits](https://www.conventionalcommits.org/)
+7. Crear un Pull Request
+
+### Convenciones
+
+- **Nombres de tokens**: kebab-case para CSS y PascalCase para JS/TS
+- **Estructura jerárquica**: Mantener organización por categorías
+- **Valores OKLCH**: Usar formato `oklch(L% C H)` para colores
+- **Unidades**: `rem` para tamaños, `px` para bordes
+- **Commits**: Seguir conventional commits con scope, ej: `feat(tokens): add new shadow tokens`
+
+### Ejemplo de Commit
+
+```bash
+# Agregar nuevos tokens
+git commit -m "feat(tokens): add shadow design tokens"
+
+# Actualizar colores existentes  
+git commit -m "fix(tokens): improve contrast ratios for accessibility"
+
+# Actualizar configuración
+git commit -m "chore(tokens): update style dictionary config"
+```
+
+## 📄 Licencia
+
+MIT - ver [LICENSE](../../../LICENSE) para detalles.
+
+## 🔗 Enlaces
 
 - [Style Dictionary Documentation](https://amzn.github.io/style-dictionary/)
 - [OKLCH Color Space](https://oklch.com/)
 - [Design Tokens W3C Specification](https://design-tokens.github.io/community-group/format/)
 - [Código Obsidiana Design System](../../../README.md)
+- [Conventional Commits](https://www.conventionalcommits.org/)
+- [WCAG 2.1 Guidelines](https://www.w3.org/WAI/WCAG21/Understanding/)
+
+---
+
+**Código Obsidiana Design System** - Sistema de diseño moderno y escalable para aplicaciones web.
