@@ -1,30 +1,34 @@
-# Código Obsidiana Design System
+# Código Obsidiana Toolkit
 
 <a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
 
-A modern and scalable design system built with [Nx](https://nx.dev) that provides consistent design tokens and reusable components for web applications.
+Un toolkit moderno y escalable construido con [Nx](https://nx.dev) que proporciona herramientas de desarrollo, design tokens, custom hooks, utilidades para deployment y mucho más.
 
 ## 🎯 Features
 
-- **Design Tokens**: Complete design token system using [Style Dictionary](https://amzn.github.io/style-dictionary/)
-- **Modern Colors**: Color palette based on OKLCH for better visual perception
-- **Dark Mode**: Native support for light and dark themes
-- **TypeScript**: Fully typed for better development experience
-- **Monorepo**: Efficient package management with Nx
-- **CI/CD**: Automated setup with Husky and Git hooks
-- **Testing**: Complete testing setup with Jest
+- **Design Tokens**: Sistema completo de design tokens usando [Style Dictionary](https://amzn.github.io/style-dictionary/)
+- **Dev Tools**: Herramientas para desarrollo y deployment
+- **Custom Hooks**: Hooks reutilizables para React
+- **Nx Utilities**: Utilidades específicas para proyectos Nx
+- **Production Tools**: Herramientas para manejo de pases a producción
+- **Modern Colors**: Paleta de colores basada en OKLCH para mejor percepción visual
+- **Dark Mode**: Soporte nativo para temas claros y oscuros
+- **TypeScript**: Completamente tipado para mejor experiencia de desarrollo
+- **Monorepo**: Gestión eficiente de paquetes con Nx
+- **CI/CD**: Configuración automatizada con Husky y Git hooks
+- **Testing**: Configuración completa de testing con Jest
 
 ## 📦 Packages
 
 ### @codigo-obsidiana/design-tokens
 
-Fundamental design tokens including:
+Design tokens fundamentales incluyendo:
 
-- **Colors**: Complete palette with light/dark mode variants
+- **Colors**: Paleta completa con variantes light/dark mode
   - Base colors (light/dark backgrounds)
   - Semantic colors (primary, secondary, accent, neutral)
   - Status colors (info, success, warning, error)
-- **Design**: Tokens for visual elements
+- **Design**: Tokens para elementos visuales
   - Border radius (selector, field, box)
   - Sizes and spacing
   - Border widths
@@ -41,8 +45,8 @@ Fundamental design tokens including:
 
 ```bash
 # Clone the repository
-git clone https://github.com/codigo-obsidiana/co-design-system.git
-cd co-design-system
+git clone https://github.com/codigo-obsidiana/toolkit.git
+cd toolkit
 
 # Install dependencies
 pnpm install
@@ -106,7 +110,7 @@ npx nx sync:check
 ### Project structure
 
 ```
-co-design-system/
+toolkit/
 ├── packages/
 │   └── libs/
 │       └── design-tokens/          # Design tokens
@@ -117,6 +121,14 @@ co-design-system/
 ├── nx.json                         # Nx configuration
 └── pnpm-workspace.yaml            # Workspace configuration
 ```
+
+### Adding new packages
+
+El toolkit está diseñado para crecer. Próximos paquetes incluirán:
+- **@codigo-obsidiana/dev-tools**: Herramientas de desarrollo y deployment
+- **@codigo-obsidiana/custom-hooks**: Hooks reutilizables para React
+- **@codigo-obsidiana/nx-utils**: Utilidades específicas para Nx
+- **@codigo-obsidiana/prod-tools**: Herramientas para pases a producción
 
 ### Adding new tokens
 
@@ -149,6 +161,8 @@ This project uses [Conventional Commits](https://www.conventionalcommits.org/):
 - `feat(tokens): add new color palette`
 - `fix(tokens): correct primary color contrast ratio`
 - `docs(readme): update installation instructions`
+- `feat(dev-tools): add production deployment utility`
+- `feat(hooks): add useLocalStorage custom hook`
 
 ## 🔧 Configuration
 
@@ -186,8 +200,8 @@ npx nx release
 
 ## 🤝 Community
 
-- [GitHub Issues](https://github.com/codigo-obsidiana/co-design-system/issues)
-- [Discussions](https://github.com/codigo-obsidiana/co-design-system/discussions)
+- [GitHub Issues](https://github.com/codigo-obsidiana/toolkit/issues)
+- [Discussions](https://github.com/codigo-obsidiana/toolkit/discussions)
 
 ## 📄 License
 
