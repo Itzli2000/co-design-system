@@ -2,35 +2,35 @@
 
 <a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
 
-Un toolkit moderno y escalable construido con [Nx](https://nx.dev) que proporciona herramientas de desarrollo, design tokens, custom hooks, utilidades para deployment y mucho más.
+A modern and scalable toolkit built with [Nx](https://nx.dev) that provides development tools, design tokens, custom hooks, deployment utilities and much more.
 
 ## 🎯 Features
 
-- **Design Tokens**: Sistema completo de design tokens usando [Style Dictionary](https://amzn.github.io/style-dictionary/)
-- **Dev Tools**: Herramientas para desarrollo y deployment
-- **Custom Hooks**: Hooks reutilizables para React
-- **Nx Utilities**: Utilidades específicas para proyectos Nx
-- **Production Tools**: Herramientas para manejo de pases a producción
-- **Modern Colors**: Paleta de colores basada en OKLCH para mejor percepción visual
-- **Dark Mode**: Soporte nativo para temas claros y oscuros
-- **TypeScript**: Completamente tipado para mejor experiencia de desarrollo
-- **Monorepo**: Gestión eficiente de paquetes con Nx
-- **CI/CD**: Configuración automatizada con Husky y Git hooks
-- **Testing**: Configuración completa de testing con Jest
+- **Design Tokens**: Complete design token system using [Style Dictionary](https://amzn.github.io/style-dictionary/)
+- **Dev Tools**: Development and deployment tools
+- **Custom Hooks**: Reusable React hooks
+- **Nx Utilities**: Specific utilities for Nx projects
+- **Production Tools**: Tools for production deployment management
+- **Modern Colors**: Color palette based on OKLCH for better visual perception
+- **Dark Mode**: Native support for light and dark themes
+- **TypeScript**: Fully typed for better development experience
+- **Monorepo**: Efficient package management with Nx
+- **CI/CD**: Automated setup with Husky and Git hooks
+- **Testing**: Complete testing setup with Jest
 
 ## 📦 Packages
 
 ### @codigo-obsidiana/design-tokens
 
-Design tokens fundamentales incluyendo:
+Fundamental design tokens including:
 
-- **Colors**: Paleta completa con variantes light/dark mode
+- **Colors**: Complete palette with light/dark mode variants
   - Base colors (light/dark backgrounds)
   - Semantic colors (primary, secondary, accent, neutral)
   - Status colors (info, success, warning, error)
-- **Design**: Tokens para elementos visuales
+- **Design**: Tokens for visual elements
   - Border radius (selector, field, box)
-  - Sizes and spacing
+  - Sizes and spacing  
   - Border widths
   - Effects (depth, noise)
 
@@ -124,11 +124,11 @@ toolkit/
 
 ### Adding new packages
 
-El toolkit está diseñado para crecer. Próximos paquetes incluirán:
-- **@codigo-obsidiana/dev-tools**: Herramientas de desarrollo y deployment
-- **@codigo-obsidiana/custom-hooks**: Hooks reutilizables para React
-- **@codigo-obsidiana/nx-utils**: Utilidades específicas para Nx
-- **@codigo-obsidiana/prod-tools**: Herramientas para pases a producción
+The toolkit is designed to grow. Upcoming packages will include:
+- **@codigo-obsidiana/dev-tools**: Development and deployment tools
+- **@codigo-obsidiana/custom-hooks**: Reusable React hooks
+- **@codigo-obsidiana/nx-utils**: Nx-specific utilities
+- **@codigo-obsidiana/prod-tools**: Production deployment tools
 
 ### Adding new tokens
 

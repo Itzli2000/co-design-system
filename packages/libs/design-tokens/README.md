@@ -1,17 +1,17 @@
 # @codigo-obsidiana/design-tokens
 
-Un paquete completo de design tokens para el Código Obsidiana Toolkit, construido con [Style Dictionary](https://amzn.github.io/style-dictionary/) y optimizado para aplicaciones web modernas.
+A complete design tokens package for the Código Obsidiana Toolkit, built with [Style Dictionary](https://amzn.github.io/style-dictionary/) and optimized for modern web applications.
 
-## ✨ Características
+## ✨ Features
 
-- **🎨 Colores modernos**: Paleta basada en OKLCH para mejor percepción visual
-- **🌓 Dark mode nativo**: Soporte completo para temas claros y oscuros
-- **📐 Tokens de diseño**: Radius, spacing, efectos y más
-- **🔧 Multi-formato**: CSS, JavaScript, TypeScript y JSON
-- **🏢 Multi-brand**: Soporte para múltiples marcas (Obsidiana, Ixiptla)
-- **⚡ Optimizado**: Generación automática y tree-shaking
+- **🎨 Modern colors**: OKLCH-based palette for better visual perception
+- **🌓 Native dark mode**: Complete support for light and dark themes
+- **📐 Design tokens**: Radius, spacing, effects and more
+- **🔧 Multi-format**: CSS, JavaScript, TypeScript and JSON
+- **🏢 Multi-brand**: Support for multiple brands (Obsidiana, Ixiptla)
+- **⚡ Optimized**: Automatic generation and tree-shaking
 
-## 📦 Instalación
+## 📦 Installation
 
 ```bash
 npm install @codigo-obsidiana/design-tokens
@@ -25,11 +25,11 @@ yarn add @codigo-obsidiana/design-tokens
 pnpm add @codigo-obsidiana/design-tokens
 ```
 
-## 🚀 Uso rápido
+## 🚀 Quick usage
 
 ### CSS Variables
 
-Importa las variables CSS globalmente:
+Import CSS variables globally:
 
 ```css
 @import '@codigo-obsidiana/design-tokens/css';
@@ -71,7 +71,7 @@ const buttonStyles = {
 };
 ```
 
-### Uso con múltiples marcas
+### Multi-brand usage
 
 #### Ixiptla Brand
 
@@ -86,7 +86,7 @@ import {
 @import '@codigo-obsidiana/design-tokens/brands/ixiptla/css';
 ```
 
-#### Carga dinámica de marcas
+#### Dynamic brand loading
 
 ```typescript
 const loadBrandTokens = async (brand: 'obsidiana' | 'ixiptla') => {
@@ -101,36 +101,36 @@ const loadBrandTokens = async (brand: 'obsidiana' | 'ixiptla') => {
 };
 ```
 
-## 🏗️ Estructura de tokens
+## 🏗️ Token structure
 
-### Colores
+### Colors
 
-Los tokens de color siguen una estructura semántica y están optimizados para accesibilidad:
+Color tokens follow a semantic structure and are optimized for accessibility:
 
-#### Colores base
-- `color.base.light.*` - Fondos y superficies en modo claro
-- `color.base.dark.*` - Fondos y superficies en modo oscuro
+#### Base colors
+- `color.base.light.*` - Backgrounds and surfaces in light mode
+- `color.base.dark.*` - Backgrounds and surfaces in dark mode
 
-#### Colores semánticos
-- `color.primary.*` - Color principal de la marca
-- `color.secondary.*` - Color secundario
-- `color.accent.*` - Color de acento
-- `color.neutral.*` - Grises y neutros
+#### Semantic colors
+- `color.primary.*` - Primary brand color
+- `color.secondary.*` - Secondary color
+- `color.accent.*` - Accent color
+- `color.neutral.*` - Grays and neutrals
 
-#### Colores de estado
-- `color.info.*` - Información
-- `color.success.*` - Éxito
-- `color.warning.*` - Advertencia
+#### Status colors
+- `color.info.*` - Information
+- `color.success.*` - Success
+- `color.warning.*` - Warning
 - `color.error.*` - Error
 
-### Tokens de diseño
+### Design tokens
 
 - `design.radius.*` - Border radius (selector, field, box)
-- `design.space.*` - Espaciado y padding
-- `design.border.width.*` - Anchos de borde
-- `design.effects.*` - Sombras y efectos
+- `design.space.*` - Spacing and padding
+- `design.border.width.*` - Border widths
+- `design.effects.*` - Shadows and effects
 
-## 🎨 Ejemplos de uso
+## 🎨 Usage examples
 
 ### React Component
 
@@ -174,7 +174,7 @@ import { ColorPrimaryLightDefault, DesignRadiusField } from '@codigo-obsidiana/d
 const StyledButton = styled.button`
   background-color: ${ColorPrimaryLightDefault};
   border-radius: ${DesignRadiusField};
-  /* ... más estilos */
+  /* ... more styles */
 `;
 ```
 
@@ -189,11 +189,11 @@ module.exports = {
     extend: {
       colors: {
         primary: ColorPrimaryLightDefault,
-        // ... más colores
+        // ... more colors
       },
       borderRadius: {
         field: DesignRadiusField,
-        // ... más radius
+        // ... more radius
       }
     }
   }
@@ -216,30 +216,30 @@ module.exports = {
 }
 ```
 
-## 🔧 Configuración avanzada
+## 🔧 Advanced configuration
 
 ### Tree Shaking
 
-Para optimizar el bundle size, importa solo los tokens que necesites:
+To optimize bundle size, import only the tokens you need:
 
 ```typescript
-// ❌ Importa todos los tokens
+// ❌ Imports all tokens
 import * as tokens from '@codigo-obsidiana/design-tokens';
 
-// ✅ Importa solo los tokens necesarios
+// ✅ Import only needed tokens
 import { ColorPrimaryLightDefault, DesignRadiusField } from '@codigo-obsidiana/design-tokens';
 ```
 
-### Carga dinámica de CSS
+### Dynamic CSS loading
 
 ```typescript
-// Carga dinámica basada en el tema o marca
+// Dynamic loading based on theme or brand
 const loadThemeCSS = async (brand: string) => {
   await import(`@codigo-obsidiana/design-tokens/brands/${brand}/css`);
 };
 ```
 
-## 📚 Tokens disponibles
+## 📚 Available tokens
 
 <details>
 <summary>🎨 Color Tokens</summary>
@@ -251,12 +251,12 @@ const loadThemeCSS = async (brand: string) => {
 - `ColorBaseDarkContent` - `#ffffff`
 
 ### Primary Colors
-- `ColorPrimaryLightDefault` - Color principal modo claro
-- `ColorPrimaryLightHover` - Hover estado modo claro
-- `ColorPrimaryLightActive` - Active estado modo claro
-- `ColorPrimaryLightDisabled` - Disabled estado modo claro
-- `ColorPrimaryLightContent` - Texto sobre primary modo claro
-- `ColorPrimaryLightBorder` - Borde primary modo claro
+- `ColorPrimaryLightDefault` - Primary color light mode
+- `ColorPrimaryLightHover` - Hover state light mode
+- `ColorPrimaryLightActive` - Active state light mode
+- `ColorPrimaryLightDisabled` - Disabled state light mode
+- `ColorPrimaryLightContent` - Text on primary light mode
+- `ColorPrimaryLightBorder` - Primary border light mode
 
 ### Secondary Colors
 - `ColorSecondaryLightDefault`
@@ -294,35 +294,35 @@ const loadThemeCSS = async (brand: string) => {
 - `DesignBorderWidthThick` - `4px`
 
 ### Effects
-- `DesignEffectsDepthSm` - Sombra pequeña
-- `DesignEffectsDepthMd` - Sombra media
-- `DesignEffectsDepthLg` - Sombra grande
-- `DesignEffectsNoise` - Efecto de ruido
+- `DesignEffectsDepthSm` - Small shadow
+- `DesignEffectsDepthMd` - Medium shadow
+- `DesignEffectsDepthLg` - Large shadow
+- `DesignEffectsNoise` - Noise effect
 
 </details>
 
-## 🔄 Versionado
+## 🔄 Versioning
 
-Este paquete sigue [Semantic Versioning](https://semver.org/):
+This package follows [Semantic Versioning](https://semver.org/):
 
-- **MAJOR**: Cambios que rompen compatibilidad
-- **MINOR**: Nuevas características compatibles
-- **PATCH**: Bug fixes y mejoras menores
+- **MAJOR**: Breaking compatibility changes
+- **MINOR**: New compatible features
+- **PATCH**: Bug fixes and minor improvements
 
-## 🤝 Contribuciones
+## 🤝 Contributing
 
-Las contribuciones son bienvenidas. Por favor:
+Contributions are welcome. Please:
 
-1. Fork el repositorio
-2. Crea una rama: `git checkout -b feat(tokens): nueva característica`
-3. Commit tus cambios siguiendo [Conventional Commits](https://www.conventionalcommits.org/)
-4. Push y crea un Pull Request
+1. Fork the repository
+2. Create a branch: `git checkout -b feat(tokens): new feature`
+3. Commit your changes following [Conventional Commits](https://www.conventionalcommits.org/)
+4. Push and create a Pull Request
 
-## 📄 Licencia
+## 📄 License
 
-MIT License - ver [LICENSE](LICENSE) para detalles.
+MIT License - see [LICENSE](LICENSE) for details.
 
-## 🔗 Enlaces útiles
+## 🔗 Useful links
 
 - [Código Obsidiana Toolkit](https://github.com/codigo-obsidiana/toolkit)
 - [Style Dictionary Documentation](https://amzn.github.io/style-dictionary/)
