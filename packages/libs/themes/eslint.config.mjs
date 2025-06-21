@@ -12,6 +12,12 @@ export default [
             '{projectRoot}/eslint.config.{js,cjs,mjs}',
             '{projectRoot}/vite.config.{js,ts,mjs,mts}',
           ],
+          ignoredDependencies: [
+            '@codigo-obsidiana/design-tokens', // Used dynamically via import()
+            'tslib',                            // TypeScript runtime helpers
+            '@mui/material',                    // Optional peer dependency
+            'vitest'                            // Testing framework (devDependency)
+          ]
         },
       ],
     },
