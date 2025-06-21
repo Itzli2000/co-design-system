@@ -1,6 +1,6 @@
 {
   "name": "@codigo-obsidiana/design-tokens",
-  "version": "0.0.8",
+  "version": "0.1.0",
   "description": "Design tokens for the Código Obsidiana Design System",
   "repository": {
     "type": "git",
