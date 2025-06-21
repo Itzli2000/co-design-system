@@ -1,24 +1,47 @@
 {
   "name": "@codigo-obsidiana/themes",
   "version": "0.0.1",
+  "description": "Framework-agnostic themes for the Código Obsidiana Design System",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/codigo-obsidiana/toolkit.git",
+    "directory": "packages/libs/themes"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "keywords": [
+    "themes",
+    "design-system",
+    "daisyui",
+    "mui",
+    "material-ui",
+    "shadcn",
+    "css-variables",
+    "framework-agnostic"
+  ],
   "type": "module",
-  "main": "./dist/index.js",
-  "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
   "exports": {
-    "./package.json": "./package.json",
-    ".": {
-      "development": "./src/index.ts",
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.js",
-      "default": "./dist/index.js"
-    }
+    "./daisyui/*": "./dist/daisyui/*",
+    "./mui/*": "./dist/mui/*",
+    "./shadcn/*": "./dist/shadcn/*",
+    "./package.json": "./package.json"
   },
   "files": [
     "dist",
     "!**/*.tsbuildinfo"
   ],
+  "sideEffects": ["*.css"],
   "dependencies": {
+    "@codigo-obsidiana/design-tokens": "workspace:*",
     "tslib": "^2.3.0"
+  },
+  "peerDependencies": {
+    "@mui/material": ">=5.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@mui/material": {
+      "optional": true
+    }
   }
 }
