@@ -64,6 +64,32 @@
   "release": {
     "version": {
       "preVersionCommand": "pnpm dlx nx run-many -t build"
+    },
+    "changelog": {
+      "workspaceChangelog": {
+        "createRelease": "github",
+        "file": "CHANGELOG.md",
+        "entryWhenNoChanges": "This release contains no user-facing changes."
+      },
+      "projectChangelogs": {
+        "createRelease": "github",
+        "file": "CHANGELOG.md",
+        "entryWhenNoChanges": "This release contains no user-facing changes."
+      }
+    },
+    "git": {
+      "commit": true,
+      "tag": true,
+      "commitMessage": "chore(release): publish {version}"
+    },
+    "groups": {
+      "libraries": {
+        "projects": ["design-tokens", "themes"],
+        "changelog": {
+          "file": "CHANGELOG.md",
+          "createRelease": "github"
+        }
+      }
     }
   }
 }
