@@ -76,16 +76,53 @@ const theme = await generateDaisyUITheme('obsidiana');
 
 ## 🔧 Development
 
+### Build Scripts
+
 ```bash
-# Build the library
+# Clean dist directory
+nx clean themes
+
+# Build the library (includes clean)
 nx build themes
 
+# Publish to npm (includes clean + build)
+nx publish themes
+```
+
+### Testing & Quality
+
+```bash
 # Run tests
 nx test themes
 
-# Lint
+# Lint code
 nx lint themes
 ```
+
+### Script Dependencies
+
+```
+clean → build → publish
+```
+
+All scripts automatically handle their dependencies, so running `nx build themes` will clean first, and `nx publish themes` will clean + build + publish.
+
+## 📂 Project Structure
+
+```
+packages/libs/themes/
+├── src/
+│   ├── common/           # Shared utilities and types
+│   ├── daisyui/          # DaisyUI theme generators
+│   ├── mui/              # Material-UI theme generators
+│   └── shadcn/           # Shadcn/UI theme generators
+├── dist/                 # Built output
+└── package.json          # Package configuration
+```
+
+## 🔗 Related Packages
+
+- [`@codigo-obsidiana/design-tokens`](../design-tokens) - Design tokens source
 
 ## 📄 License
 
