@@ -8,6 +8,9 @@
     },
     {
       "path": "./packages/libs/design-tokens"
+    },
+    {
+      "path": "./packages/libs/themes"
     }
   ]
 }
