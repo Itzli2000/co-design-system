@@ -7,5 +7,6 @@
         "Itzli",
         "OKLCH",
         "oklch"
-    ]
+    ],
+    "nxConsole.generateAiAgentRules": true
 }
