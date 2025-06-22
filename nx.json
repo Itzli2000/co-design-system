@@ -62,23 +62,9 @@
     }
   },
   "release": {
-    "version": {
-      "preVersionCommand": "pnpm dlx nx run-many -t build"
-    },
-          "changelog": {
-        "automaticFromRef": true,
-        "workspaceChangelog": {
-          "createRelease": "github",
-          "file": "CHANGELOG.md",
-          "entryWhenNoChanges": "This release contains no user-facing changes."
-        },
-        "projectChangelogs": true
-      },
-    "git": {
-      "commit": true,
-      "tag": true,
-      "commitMessage": "chore(release): publish {version}"
-    },
-    "projects": ["design-tokens", "themes"]
+    "changelog": {
+      "workspaceChangelog": true,
+      "projectChangelogs": true
+    }
   }
 }
