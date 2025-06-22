@@ -1,6 +1,6 @@
 {
   "name": "@codigo-obsidiana/themes",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Framework-agnostic themes for the Código Obsidiana Design System",
   "repository": {
     "type": "git",
@@ -35,7 +35,7 @@
     "*.css"
   ],
   "dependencies": {
-    "@codigo-obsidiana/design-tokens": "*",
+    "@codigo-obsidiana/design-tokens": "workspace:*",
     "tslib": "^2.3.0"
   },
   "devDependencies": {
