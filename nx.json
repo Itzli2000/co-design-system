@@ -62,9 +62,11 @@
     }
   },
   "release": {
+    "projects": ["themes", "design-tokens"],
     "projectsRelationship": "independent",
-    "releaseTagPattern": "v{version}",
+    "releaseTagPattern": "release/{projectName}/{version}",
     "changelog": {
+      "automaticFromRef": true,
       "workspaceChangelog": true,
       "projectChangelogs": true
     }
